@@ -82,3 +82,21 @@ git commit --amend (correcting the commit message & added some file in this comm
 
 
 
+### .gitignore
+
+```md
+Stagging area তে যাবার আগে gitignore এ file or folder add করতে হবে
+
+like before git add . command have to add all file or folder in .gitignore file
+
+```
+
+
+## Unstagging file 
+
+```md
+git add . command দেওয়ার পর যদি মনে পড়ে  কোন file বা folder .gitignore এ add করতে হবে তবে ওই file unstage করে নিতে হবে fist এ
+
+git rm --cacher fileName
+
+```
