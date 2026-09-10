@@ -100,3 +100,17 @@ git add . command দেওয়ার পর যদি মনে পড়ে  ক�
 git rm --cacher fileName
 
 ```
+
+## Main branch থেকে feature branch-এ কোড আনা এবং Push করার নিয়ম
+
+```md
+git checkout problem-page
+git pull origin main
+
+git checkout main
+git pull
+
+git checkout problem-page
+git push origin problem-page
+
+```
