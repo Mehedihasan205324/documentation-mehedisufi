@@ -12,5 +12,31 @@ Django-কে **"Battery Include"** ফ্রেমওয়ার্ক বলা 
 
 ---
 
+### 1. First Virtual Environment Create
+```markdown
+python -m venv environment_name
+```
+### 2. Environment Activate
+```py
+# for windows user
+environment_name\Scripts\activate
+
+# for linax user
+source environment_name\bin\activate
+```
+### 3. Django Install
+```py
+# go the the pipi website search (Django install)
+pip install Django
+
+pip list # for check the django is install or not 
+```
+
+### 4. Poject Create
+```markdown
+django-admin startproject Project_name .
+```
+
+
 ### Server Configuration
 * **Asgi.py** and **wsgi.py** is the server of django project.
