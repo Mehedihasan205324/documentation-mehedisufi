@@ -45,7 +45,7 @@ class Task_details(models.Model):
 
 ### One to One Relationship
 
-- in these table is dependent another table like parent and child table have to added relation in the child table ( write models.OneToOneField( table_name, On_delete )
+- in these table is dependent another table like parent and child table have to added relation in the child table ( write models.OneToOneField( table_name, On_delete ))
 - Use there foreign key on_delete attibute  here and have more on delete option
 
 ### Introduction to Django Shell
@@ -70,6 +70,6 @@ print(second_project)
 
 ### Many to One Relationship
 
-- Many to one relationship write which table is dependent to the parent ( models.ForeignKey ( table_name, on_delete )
+- Many to one relationship write which table is dependent to the parent ( models.ForeignKey ( table_name, on_delete ) )
 
 ### Many to Many Relationship

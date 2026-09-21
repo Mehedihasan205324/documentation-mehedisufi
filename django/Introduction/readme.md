@@ -36,7 +36,18 @@ pip list # for check the django is install or not
 ```markdown
 django-admin startproject Project_name .
 ```
-
+### 5. App Create
+```py
+django-admin startapp app_name
+```
+### Requirement.txt Generate
+```py
+pip freeze > requirement.txt
+```
+### install django version check
+```py
+python -m django --version
+```
 
 ### Server Configuration
 * **Asgi.py** and **wsgi.py** is the server of django project.

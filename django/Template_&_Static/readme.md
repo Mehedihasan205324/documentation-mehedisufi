@@ -85,7 +85,7 @@ JSON
 JavaScript
 
 ```json
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} **/
 module.exports = {
   content: [
     "./templates/**/*.html",          // মেইন টেমপ্লেট
