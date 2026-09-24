@@ -64,13 +64,24 @@ git merge branch name  <!-- which branch you want to merging with main or master
 ### undo
 
 ```md
-git checkout -- . (in the working directory)
-git reset HEAD . (Staging area)
-git reset --hard HEAD  (Staging & Unstaging area)
+git checkout -- . (working directory) old -> git restore . (modern) 
+
+⚠️ Warning: git checkout -- . বা git restore . দিলে আপনার সব আনসেভড কোড চিরতরে মুছে যাবে!
+
+git reset HEAD . (Staging area) old -> git restore --staged . (modern)
+git reset --hard HEAD (Staging & Working directory)
 
 ```
+### Toggle Previous Branch
+- **Description:** আপনাকে হুবহু আগের ব্র্যাঞ্চে (Previous Branch) ফিরিয়ে নিয়ে যায় (ঠিক কম্পিউটারের `Alt + Tab` এর মতো কাজ করে)। বারবার বড় ব্র্যাঞ্চের নাম টাইপ করার ঝামেলা এড়াতে এটি দারুণ একটি শর্টকাট।
+```md
+git checkout - (old) -> git switch - (modern)
+```
+### Fast Add & Commit Together
 
-
+```md
+git commit -am "your message"
+```
 ### Correcting commit
 
 ```md
