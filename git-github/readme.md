@@ -151,3 +151,196 @@ git push origin problem-page
 ```md
 git branch -d Branch_name
 ```
+
+# Fork & Upstream
+
+যখন অন্য কারো GitHub repository **fork** করে নিজের GitHub-এ নিয়ে কাজ করি, তখন সাধারণত ২টা remote থাকে:
+
+```md
+origin   → আমার নিজের fork
+upstream → Original repository
+```
+
+Example:
+
+```md
+Original repository:
+https://github.com/mehedihasansufi/documentation
+
+My fork:
+https://github.com/Mehedihasan205324/documentation-mehedisufi
+```
+
+তখন:
+
+```md
+origin   → Mehedihasan205324/documentation-mehedisufi
+upstream → mehedihasansufi/documentation
+```
+
+### Add Upstream
+
+```md
+git remote add upstream https://github.com/ORIGINAL-OWNER/REPOSITORY.git
+```
+
+এখানে:
+
+```md
+ORIGINAL-OWNER → Original repository owner's GitHub username
+REPOSITORY     → Original repository name
+```
+
+Example:
+
+```md
+git remote add upstream https://github.com/mehedihasansufi/documentation.git
+```
+
+### Check Remote
+
+```md
+git remote -v
+```
+
+এটি local repository-এর সাথে connected সব remote এবং তাদের URL দেখায়।
+
+Example:
+
+origin    → আমার fork
+upstream  → original repository
+
+```md
+origin    https://github.com/Mehedihasan205324/documentation-mehedisufi (fetch)
+origin    https://github.com/Mehedihasan205324/documentation-mehedisufi (push)
+
+upstream  https://github.com/mehedihasansufi/documentation (fetch)
+upstream  https://github.com/mehedihasansufi/documentation (push)
+```
+
+### Change Upstream URL
+
+যদি `upstream` আগে থেকেই থাকে কিন্তু URL ভুল হয়:
+
+```md
+git remote set-url upstream NEW_URL
+```
+
+Example:
+
+```md
+git remote set-url upstream https://github.com/mehedihasansufi/documentation.git
+```
+
+### Fetch Original Repository
+
+Original repository-এর নতুন branch/change-এর information local repository-তে আনতে:
+
+```md
+git fetch upstream
+```
+
+`fetch` করলে original repository-এর changes **সরাসরি তোমার working directory-তে আসে না**।
+
+এটি শুধু original repository-এর নতুন information/branch local Git-এ update করে।
+
+### Check Upstream Branches
+
+```md
+git branch -a
+```
+
+এখানে `remotes/upstream/...` দিয়ে original repository-এর remote branches দেখা যাবে।
+
+Example:
+
+```md
+remotes/origin/main
+remotes/origin/feature/my-task
+
+remotes/upstream/main
+remotes/upstream/feature/another-task
+```
+
+### Get Original Main Branch Changes
+
+Original repository-এর `main` branch-এর changes নিজের current branch-এ আনতে:
+
+```md
+git merge upstream/main
+```
+
+অথবা আগে fetch:
+
+```md
+git fetch upstream
+git merge upstream/main
+```
+
+### Push to My Fork
+
+নিজের changes নিজের fork-এ push করতে:
+
+```md
+git push origin main
+```
+
+অথবা feature branch:
+
+```md
+git push origin branch_name
+```
+
+## ⚠️⚠️⚠️⚠️ Important
+
+```md
+origin   = আমার fork → এখানে সাধারণত আমি push করি
+
+upstream = original repo → এখান থেকে সাধারণত আমি fetch করি
+```
+
+### Fork workflow:
+
+```md
+Original Repository
+        ↓
+     upstream
+        ↓
+    Local Repo
+        ↓
+      origin
+        ↓
+     My Fork
+```
+
+### Important Commands
+
+```md
+git remote -v
+```
+
+→ কোন remote কোথায় connected তা দেখায়।
+
+```md
+git remote add upstream URL
+```
+
+→ নতুন `upstream` remote তৈরি করে।
+
+```md
+git remote set-url upstream URL
+```
+
+→ existing `upstream`-এর URL পরিবর্তন করে।
+
+```md
+git fetch upstream
+```
+
+→ original repository-এর নতুন changes/branches-এর information আনে।
+
+```md
+git merge upstream/main
+```
+
+→ original repository-এর `main` branch-এর changes current branch-এর সাথে merge করে।
