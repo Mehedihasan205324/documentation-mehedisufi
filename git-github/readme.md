@@ -9,7 +9,12 @@
 ```md
 git --version
 ```
+```cmd
+HEAD →→ Point →→ Branch Name →→ Point →→ Latest Commit
 
+In detached Mode
+HEAD →→ Point →→ Specific Commit
+```
 ### git config
 
 ```md
@@ -34,6 +39,11 @@ git config --global user.email demo@gmail.com
 ```md
 git status
 git diff
+
+
+git diff old_Commit_id..new_commit_id (`to check the difference between two commit`)
+git diff --stage (difference between commit and stage code)
+git diff HEAD
 ```
 ### commit history
 
@@ -69,9 +79,25 @@ git reset --soft HEAD~1 (from commit ->Staging area )
 git reset --mixed HEAD~1 (from commit ->working directory)
 ```
 
+## git revert
+```cmd
+git revert commit_id (meaning that specific commit undo)
+```
+
+## নির্দিষ্ট commit থেকে file-এর পুরোনো version working directory-তে ফিরিয়ে আনে।
+```cmd
+git restore --source=<commit_id> <file>
+
+
+Example:
+git restore --source=a1b2c3d index.html
+```
+
+⚠️ এটা commit/branch rollback করে না; শুধু file-এর content restore করে।
+
 ### Undo With Code
 
-```md
+```cmd
 git checkout . (working directory) old -> git restore . (modern) 
 
 ⚠️ Warning: git checkout . বা git restore . দিলে আপনার সব আনসেভড কোড চিরতরে মুছে যাবে!
@@ -116,7 +142,8 @@ git commit --amend -m "new correct commit message"
 git checkout - (old) -> git switch - (modern)
 ```
 ### Fast Add & Commit Together
-
+Only working for track file not for untrack file
+tack means before **add** command will doing for the file
 ```md
 git commit -am "your message"
 ```
@@ -329,14 +356,18 @@ Original Repository
      My Fork
 ```
 
-### Important Commands
+# Important Commands
 
 ```md
 git remote -v
 ```
-
 → কোন remote কোথায় connected তা দেখায়।
+```md
+git branch -r
+```
+→ git branch -r এর কাজ হলো remote repository-তে থাকা branchগুলোর list দেখা।
 
+মানে GitHub-এ কোন কোন branch আছে সেটা তোমার local terminal থেকে দেখতে পারবে।
 ```md
 git remote add upstream URL
 ```
@@ -360,3 +391,7 @@ git merge upstream/main
 ```
 
 → original repository-এর `main` branch-এর changes current branch-এর সাথে merge করে।
+# git stash 
+ধরো তুমি feature branch-এ কাজ করছো, কিন্তু কাজ এখনো commit করার মতো শেষ হয়নি। হঠাৎ তোমাকে main branch-এ গিয়ে অন্য একটা কাজ করতে হবে। তখন তোমার incomplete changes-এর কারণে branch switch করতে সমস্যা হতে পারে।
+
+সেখানে git stash কাজে আসে।
