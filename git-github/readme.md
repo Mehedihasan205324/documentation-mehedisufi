@@ -72,6 +72,8 @@ git merge branch name  <!-- which branch you want to merging with main or master
 ```
 ### Undo Only git-commit or stage
 ```md
+git rm --cached <filename> (unstage the specific file)
+
 git reset HEAD . (Staging area -> working directory) old -> git restore --staged . (modern)
 
 git reset --soft HEAD~1 (from commit ->Staging area )
